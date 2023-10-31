@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Colors
+COLOR_RESET='\033[0m'
+COLOR_RED='\033[0;31m'
+COLOR_GREEN='\033[0;32m'
+
+echo "=== Gitleaks Secret Scanning: ... ==="
+if gitleaks detect --no-git --redact --no-banner &> /dev/null;
+then
+    echo -e "\e[1A\e[KGitleaks Secret Scan: ${COLOR_GREEN}PASS${COLOR_RESET}";
+    echo -e "No Issues found, code commit allowed";
+    exit 0
+else
+    echo -e "\e[1A\e[KGitleaks Secret Scan: ${COLOR_RED}FAIL${COLOR_RESET}";
+    echo -e "Code not commited - remove hard coded secrets";
+    exit 1
+fi
+
+
+
+# EOF
