@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println("My FAKE AWS secret: AKIAXNOXXXXDXXXXE4OA")
+	fmt.Println("My FAKE AWS secret: *******************")
 }
 
 // EOF
