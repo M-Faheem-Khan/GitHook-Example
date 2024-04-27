@@ -1,10 +1,10 @@
 # GitHooks
 Pre-Commit setup example which can be shared with other. Using gitleaks for detecting secrets prior to commit.
-- [What are Git hooks and how can they help improve developer experience??](#what-are-git-hooks-and-how-can-they-help-improve-developer-experience-)
-    + [When to use Git hooks?](#when-to-use-git-hooks-)
-    + [When not to use Git Hooks](#when-not-to-use-git-hooks-)
-- [Can this replace pipeline steps or actions?](#can-this-replace-pipeline-steps-or-actions-)
-- [What tools should I run part of my githooks?](#what-tools-should-i-run-part-of-my-githooks-)
+- [What are Git hooks and how can they help improve developer experience??](#what-are-git-hooks-and-how-can-they-help-improve-developer-experience)
+    + [When to use Git hooks?](#when-to-use-git-hooks)
+    + [When not to use Git Hooks](#when-not-to-use-git-hooks)
+- [Can this replace pipeline steps or actions?](#can-this-replace-pipeline-steps-or-actions)
+- [What tools should I run part of my githooks?](#what-tools-should-i-run-part-of-my-githooks)
     + [Development Tools](#development-tools)
     + [Security Tools](#security-tools)
 - [How to setup a githook?](#how-to-setup-a-githook-)
