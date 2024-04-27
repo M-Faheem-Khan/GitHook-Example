@@ -1,6 +1,8 @@
 # GitHooks
 Pre-Commit setup example which can be shared with other. Using gitleaks for detecting secrets prior to commit.
-- [What is the purpose of GitHooks?](#what-is-the-purpose-of-githooks-)
+- [What are Git hooks and how can they help improve developer experience??](#what-are-git-hooks-and-how-can-they-help-improve-developer-experience-)
+    + [When to use Git hooks?](#when-to-use-git-hooks-)
+    + [When not to use Git Hooks](#when-not-to-use-git-hooks-)
 - [Can this replace pipeline steps or actions?](#can-this-replace-pipeline-steps-or-actions-)
 - [What tools should I run part of my githooks?](#what-tools-should-i-run-part-of-my-githooks-)
     + [Development Tools](#development-tools)
@@ -10,17 +12,32 @@ Pre-Commit setup example which can be shared with other. Using gitleaks for dete
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
-# What is the purpose of GitHooks?
-Githooks allows us to make use of run custom scripts prior to running commit, or pushing. These scripts can run tools for devs(linter, formatter, etc.) or security(secret scanning, vulnerable code). Based on the results of each of the tools we can prevent the user from pushing code vulnerable or not up-to standard, effectivly giving the developer faster feedback loop to address issues and maintainers to not have to identify/pin-point issues related to standards which can be identified by linter or other tooling.  
+# What are Git hooks and how can they help improve developer experience?
+Git hooks are scripts triggered on a given git event(commit, push). Git hooks should be used to improve developer experience. Using custom scripts we can improve developer experience by shortening the feedback loop and automating the following(not limited):
+- Linting
+- Formatting
+- Versioning
+- Commit message formatting
+- Running tests prior to pushing changes
+- Security code scanning(secrets, vulnerable code)
+
+## When to use Git hooks?  
+- Enforce Coding Standard(linting,formatting) 
+- Automate tasks(versioning, unit-tests) 
+
+## When not to use Git hooks?  
+- Impose Personal Prefrences 
+- Running checks/tools that disrupt developer flow (long running checks - ideally your checks/hooks should not run for longer than 15 seconds)
+
 
 # Can this replace pipeline steps or actions?
-You could, but you shouldn't for the below reasons. Githooks should be used in conjunection with the pipeline as they act as a preliminerary gate on the developers device rather than in the central repository. The hooks should detect/catch major of the issues that will be found later on.  
+No. Githooks should be used in conjunection with the pipeline as they act as a preliminerary gate on the developers device rather than in the central repository. The hooks should detect/catch major of the issues that will be found later on.  
 - Faster feedback loop for devs (don't have to wait for maintainers or pipeline steps to run)
 - Code pushed to PR meets standards prior to review - Linting/Formatting should be lower priority for maintainers when reviewing code as this can be automated.
 - Cheaper(Time vs Resource) to fix issues when they are caught as the code is commited rather than when its in production and identified months later. 
 - Save Cost on Build Minutes - why run entire pipeline just to findout the code does not meet standards. Some pipeline run for 10 minutes or longer.
 
-# What tools should I run part of my githooks?
+# What tools should I run part of my git hooks?
 I'm not sure. As githooks act as the first set of checks/gates in a SDLC which is why it is important these only catch the most common issues and run automation which reduces the effort required by the reviewer to review the code. So, for example linters and formatter the maintiners do not want to spend time on enforcing standards why its a waste of their time and can be automated. These tools should not hinder the developer experience. Remember these are tools to help standardize good practicies and such should only run tools to catch issues early/faster. 
 
 ### Development Tools
